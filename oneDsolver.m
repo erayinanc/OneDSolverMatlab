@@ -78,28 +78,24 @@ for n=1:round(tmax/dt);
     phi = phiP;
     
     % post-process
-    plot(x,phiP,'-r','LineWidth',2); 
+    plot(x,phiP,'-r','LineWidth',2); % numerical solution
     hold on 
-    if profile==1; exact = 0.5.*sin(x-u*t)+0.5; end;
+    if profile==1; exact = 0.5.*sin(x-u*t)+0.5; end; % exact solution
     plot(x,exact,':k','LineWidth',2); 
     hold off;    
-    xlabel('x'); 
-    ylabel('\phi');
-    title({['\itt = ',num2str(n*dt),'ms']});
-    legend('computed','exact','Location','southwest');
-    legend('boxoff');
-    axis([0 2*pi 0 1.05]);   
-    axis square;
+    xlabel('x'); ylabel('\phi'); title({['\itt = ',num2str(n*dt),'ms']});
+    legend('computed','exact','Location','southwest'); legend('boxoff');
+    axis([0 2*pi 0 1.05]); axis square;
     
+    % Redraw
     shg;
     
+    % Figure position
     bx = gcf; bx.Color = [1 1 1]; bx.Resize = 'off'; bx.ToolBar = 'none'; bx.MenuBar = 'none';
 
-    pause(dt/10000);
-    
+    % Pause in b/w iterations to see the evolvement (for fast cpus you need this)
     pause(dt/6400);
-    
-    
+        
     % check the stop button
     drawnow
     if ~ishandle(h)
