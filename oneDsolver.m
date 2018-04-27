@@ -1,8 +1,8 @@
 %% 1d Scalar Transport
-% by Eray inanc
+% by Eray Inanc (eray.inanc@uni-due.de)
 % define 2 profiles (sin/top-hat) and transport phi
 % 4 numerical scheme for convective fluxes are considered, easily extendable
-% Default settings: CFD=0.5, D=1e-5, dx=2e-2;
+% Default settings: CFL=0.5, D=1e-5, dx=2e-2;
 clear;clc;clf;
 
 %% parameters run
